@@ -1,10 +1,9 @@
-# Use OpenJDK 17 as the base image
-FROM openjdk:17-jdk
-# Set the working directory inside the container
-WORKDIR /app
-# Copy the packaged Spring Boot application JAR file into the container
-COPY target/SotnanceL3Api-0.0.1-SNAPSHOT.jar .
-# Expose port 8080 to the outside world
+FROM maven:3.8.5-openjdk-17 AS build
+COPY . .
+RUN mvn clean package -DskpiTests
+
+FROM openjdk:17.0.1-jdk-slim
+COPY --from=build /target/SotnanceL3Api-0.0.1-SNAPSHOT.jar .
 EXPOSE 8080
-# Define the command to run the Spring Boot application when the container starts
-CMD ["java", "-jar", "SotnanceL3Api-0.0.1-SNAPSHOT.jar"]
+
+ENTRYPOINT ["java","-jar","demo.jar"]

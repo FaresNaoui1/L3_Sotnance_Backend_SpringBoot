@@ -21,10 +21,11 @@ public VehiculeService(VehiculeRepository vRepository) {
     VRepository = vRepository;
 }
 
-   public List<Vehicule> getV() {
+   public List<Vehicule> getVs() {
         return VRepository.findAll();
     }
 
+public Optional<Vehicule> getv(Long id){return  VRepository.findById(id);}
     @SuppressWarnings("null")
     public void addV(Vehicule v) {
         VRepository.save(v);

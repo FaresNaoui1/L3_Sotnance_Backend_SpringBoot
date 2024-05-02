@@ -1,6 +1,7 @@
 package com.SotnanceL3.SotnanceL3Api.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 
 import com.SotnanceL3.SotnanceL3Api.service.PersonService;
@@ -28,9 +29,11 @@ public VehiculeController(VehiculeService vService) {
 @Autowired
 PersonService personService;
     @GetMapping 
-    public List<Vehicule> getV() {
-        return VService.getV();
+    public List<Vehicule> getVs() {
+        return VService.getVs();
     }
+
+
 @PostMapping
 public void AddV(@RequestBody Vehicule V)
 {
@@ -47,5 +50,6 @@ public void UpdateV (@PathVariable("idV") Long id,@RequestBody Vehicule V)
     VService.updateV(id,V);
 
 }
-
+    @GetMapping("/{idV}")
+    public Optional<Vehicule> grtV(@PathVariable("idV") Long id){return VService.getv(id);}
 }

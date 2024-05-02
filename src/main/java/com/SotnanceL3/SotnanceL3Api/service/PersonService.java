@@ -21,6 +21,7 @@ public class PersonService {
     public List<Person> getPersons() {
         return personRepository.findAll();
     }
+    public Optional<Person> getPerson(Long id){return  personRepository.findById(id);}
  @SuppressWarnings("null")
 public Person AddPerson(Person person)
  {

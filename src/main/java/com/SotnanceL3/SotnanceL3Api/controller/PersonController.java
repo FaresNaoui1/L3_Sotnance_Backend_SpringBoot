@@ -5,6 +5,7 @@ import com.SotnanceL3.SotnanceL3Api.entity.Person;
 
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/v1/person")
@@ -35,5 +36,6 @@ public void UpdatePerson (@PathVariable("idPerson") Long id,@RequestBody Person 
 {
     personService.UpdatePerson(id,person);
 }
-
+    @GetMapping("/{idPerson}")
+    public Optional<Person> getPerson(@PathVariable("idPerson") Long id){return personService.getPerson(id);}
 }

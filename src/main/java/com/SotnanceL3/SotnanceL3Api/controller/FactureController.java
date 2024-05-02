@@ -44,6 +44,6 @@ public void DeletFacture( @PathVariable("idFacture") Long ID)
 @PutMapping("/{idFacture}")
 public void updatedFacture(@PathVariable("idFacture") Long Id , Facture facture)
 {
-    factureService.updateRoll(Id, facture);
+    factureService.updateFacture(Id, facture);
 }
 }

@@ -1,6 +1,7 @@
 package com.SotnanceL3.SotnanceL3Api.entity;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -15,7 +16,9 @@ public class Person {
     private String name;
     private LocalDate birthdate;
     private int sellPhone;
-
+    private String email;
+    private String password;
+    private byte[] image;
 
     @ManyToMany(mappedBy = "persons")
     private List<Vehicule> vehicules;
@@ -89,8 +92,33 @@ public class Person {
                 ", name='" + name + '\'' +
                 ", birthdate=" + birthdate +
                 ", sellPhone=" + sellPhone +
-                ", vehicules=" + vehicules +
-                ", roll=" + roll +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", imageBlob=" + Arrays.toString(image) +
                 '}';
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }

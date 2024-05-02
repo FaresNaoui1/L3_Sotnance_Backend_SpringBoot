@@ -40,7 +40,7 @@ public void deletFacture(Long idFacture)
 factureRepository.deleteById(idFacture);
 }
 
-    public void updateRoll(Long id, Facture updatedFacture) {
+    public void updateFacture(Long id, Facture updatedFacture) {
     
         @SuppressWarnings("null")
         Optional<Facture> optionalFacture = factureRepository.findById(id);

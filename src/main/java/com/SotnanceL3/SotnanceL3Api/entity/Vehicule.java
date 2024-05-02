@@ -1,5 +1,6 @@
 package com.SotnanceL3.SotnanceL3Api.entity;
 
+import java.util.Arrays;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -26,14 +27,18 @@ public class Vehicule {
 
     @Override
     public String toString() {
-        return "Vehicule [idVehicule=" + idVehicule + ", VehiculeMatriquelle=" + VehiculeMatriquelle + "]";
+        return "Vehicule{" +
+                "idVehicule=" + idVehicule +
+                ", vehiculeMatriquelle='" + VehiculeMatriquelle + '\'' +
+                ", imageBlob=" + Arrays.toString(image) +
+                '}';
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long idVehicule;
     private String VehiculeMatriquelle;
-
+    private byte[] image;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "Person_Vehicule",
@@ -83,5 +88,13 @@ private Onpanne onpanne;
 
     public void setPersons(List<Person> persons) {
         this.persons = persons;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }

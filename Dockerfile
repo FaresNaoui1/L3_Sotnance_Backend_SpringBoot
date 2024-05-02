@@ -5,4 +5,5 @@ RUN mvn clean package -DskpiTests
 FROM openjdk:17.0.1-jdk-slim
 COPY --from=build /target/SotnanceL3Api-0.0.1-SNAPSHOT.jar .
 EXPOSE 8080
+
 ENTRYPOINT ["java","-jar","demo.jar"]

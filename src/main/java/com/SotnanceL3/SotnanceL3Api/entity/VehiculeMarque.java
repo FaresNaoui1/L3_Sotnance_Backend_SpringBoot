@@ -21,8 +21,7 @@ public class VehiculeMarque {
     private Long IdVM;
     private String Vehiculemarque;
 
-    @OneToMany(mappedBy = "vehiculeMarque")
-    private List<Vehicule> vehicules;
+
 
 
     public VehiculeMarque(String vehiculemarque) {
@@ -34,11 +33,16 @@ public class VehiculeMarque {
     }
     public VehiculeMarque() {
     }
+
     @Override
     public String toString() {
-        return "VehiculeMarque [IdVM=" + IdVM + ", Vehiculemarque=" + Vehiculemarque + "]";
+        return "VehiculeMarque{" +
+                "IdVM=" + IdVM +
+                ", Vehiculemarque='" + Vehiculemarque + '\'' +
+
+                '}';
     }
- 
+
     public Long getIdVM() {
         return IdVM;
     }

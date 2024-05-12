@@ -83,7 +83,6 @@ public class Person {
         this.roll = roll;
     }
 
-
     @Override
     public String toString() {
         return "Person{" +
@@ -94,7 +93,9 @@ public class Person {
                 ", sellPhone=" + sellPhone +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", imageBlob=" + Arrays.toString(image) +
+                ", image=" + Arrays.toString(image) +
+                ", vehicules=" + vehicules +
+                ", roll=" + roll +
                 '}';
     }
 

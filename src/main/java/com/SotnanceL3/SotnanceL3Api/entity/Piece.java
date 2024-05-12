@@ -32,9 +32,21 @@ private String PieceName;
 @OneToMany(mappedBy = "piece")
 private List<Onpanne> onpanne;
 
+public List<Onpanne> getOnpanne() {
+    return onpanne;
+}
+public void setOnpanne(List<Onpanne> onpanne) {
+    this.onpanne = onpanne;
+}
 @ManyToOne
 private Facture facture;
 
+public Facture getFacture() {
+    return facture;
+}
+public void setFacture(Facture facture) {
+    this.facture = facture;
+}
 public Long getIdPiece() {
     return idPiece;
 }
@@ -47,8 +59,14 @@ public String getPieceName() {
 public void setPieceName(String pieceName) {
     PieceName = pieceName;
 }
-@Override
+
+    @Override
     public String toString() {
-        return "Piece [idPiece=" + idPiece + ", PieceName=" + PieceName + "]";
+        return "Piece{" +
+                "idPiece=" + idPiece +
+                ", PieceName='" + PieceName + '\'' +
+                ", onpanne=" + onpanne +
+                ", facture=" + facture +
+                '}';
     }
 }

@@ -24,6 +24,12 @@ public class VehiculeType {
     @OneToMany(mappedBy = "vehiculeType")
     private List<Vehicule> vehicules;
 
+public List<Vehicule> getVehicules() {
+        return vehicules;
+    }
+    public void setVehicules(List<Vehicule> vehicules) {
+        this.vehicules = vehicules;
+    }
 public VehiculeType(String vehiculetype) {
         Vehiculetype = vehiculetype;
     }
@@ -33,12 +39,17 @@ public VehiculeType(Long idVType, String vehiculetype) {
     }
 public VehiculeType() {
     }
-@Override
+
+    @Override
     public String toString() {
-        return "VehiculeType [IdVType=" + IdVType + ", Vehiculetype=" + Vehiculetype + "]";
+        return "VehiculeType{" +
+                "IdVType=" + IdVType +
+                ", Vehiculetype='" + Vehiculetype + '\'' +
+                ", vehicules=" + vehicules +
+                '}';
     }
 
-public Long getIdVType() {
+    public Long getIdVType() {
     return IdVType;
 }
 public void setIdVType(Long idVType) {

@@ -19,26 +19,53 @@ import jakarta.persistence.Table;
 public class Vehicule {
     public Vehicule(Long idVehicule, String vehiculeMatriquelle) {
         this.idVehicule = idVehicule;
-        VehiculeMatriquelle = vehiculeMatriquelle;
+        vehiculeMatriquelle = vehiculeMatriquelle;
     }
 
     public Vehicule() {
     }
 
-    @Override
-    public String toString() {
-        return "Vehicule{" +
-                "idVehicule=" + idVehicule +
-                ", vehiculeMatriquelle='" + VehiculeMatriquelle + '\'' +
-                ", imageBlob=" + Arrays.toString(image) +
-                '}';
+    public String getVehiculemarque() {
+        return vehiculemarque;
+    }
+
+    public void setVehiculemarque(String vehiculemarque) {
+        this.vehiculemarque = vehiculemarque;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long idVehicule;
-    private String VehiculeMatriquelle;
+    private String vehiculeMatriquelle;
     private byte[] image;
+    private String vehiculemarque;
+
+    @Override
+    public String toString() {
+        return "Vehicule{" +
+                "idVehicule=" + idVehicule +
+                ", vehiculeMatriquelle='" + vehiculeMatriquelle + '\'' +
+                ", image=" + Arrays.toString(image) +
+                ", vehiculemarque='" + vehiculemarque + '\'' +
+                ", Matricule='" + Matricule + '\'' +
+                ", persons=" + persons +
+                ", vehiculeType=" + vehiculeType +
+                ", location=" + location +
+                ", onpanne=" + onpanne +
+                '}';
+    }
+
+    public String getMatricule() {
+        return Matricule;
+    }
+
+    public void setMatricule(String matricule) {
+        Matricule = matricule;
+    }
+
+    public String Matricule;
+
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "Person_Vehicule",
@@ -49,21 +76,42 @@ public class Vehicule {
 
 
 @ManyToOne
-private VehiculeMarque vehiculeMarque;
-
-@ManyToOne
 private VehiculeType vehiculeType;
+
+public VehiculeType getVehiculeType() {
+    return vehiculeType;
+}
+
+public void setVehiculeType(VehiculeType vehiculeType) {
+    this.vehiculeType = vehiculeType;
+}
 
 @ManyToOne
 private Location location;
 
 
+public Location getLocation() {
+    return location;
+}
+
+public void setLocation(Location location) {
+    this.location = location;
+}
+
 @ManyToOne
 private Onpanne onpanne;
 
 
+    public Onpanne getOnpanne() {
+    return onpanne;
+}
+
+public void setOnpanne(Onpanne onpanne) {
+    this.onpanne = onpanne;
+}
+
     public Vehicule(String vehiculeMatriquelle) {
-        VehiculeMatriquelle = vehiculeMatriquelle;
+        vehiculeMatriquelle = vehiculeMatriquelle;
     }
 
     public Long getIdVehicule() {
@@ -75,11 +123,11 @@ private Onpanne onpanne;
     }
 
     public String getVehiculeMatriquelle() {
-        return VehiculeMatriquelle;
+        return vehiculeMatriquelle;
     }
 
     public void setVehiculeMatriquelle(String vehiculeMatriquelle) {
-        VehiculeMatriquelle = vehiculeMatriquelle;
+        vehiculeMatriquelle = vehiculeMatriquelle;
     }
 
     public List<Person> getPersons() {

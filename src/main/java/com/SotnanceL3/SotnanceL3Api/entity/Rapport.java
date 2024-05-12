@@ -29,6 +29,9 @@ public class Rapport {
 
     @Override
     public String toString() {
-        return "Rapport [id=" + id + ", rapport=" + rapport + "]";
+        return "Rapport{" +
+                "id=" + id +
+                ", rapport='" + rapport + '\'' +
+                '}';
     }
 }

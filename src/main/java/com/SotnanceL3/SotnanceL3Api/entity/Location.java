@@ -13,11 +13,16 @@ import jakarta.persistence.Table;
 @Entity
 @Table
 public class Location {
-@Override
+    @Override
     public String toString() {
-        return "Location [idLocation=" + idLocation + ", location=" + location + "]";
+        return "Location{" +
+                "idLocation=" + idLocation +
+                ", location='" + location + '\'' +
+                ", vehicules=" + vehicules +
+                '}';
     }
-public Location(String location) {
+
+    public Location(String location) {
         this.location = location;
     }
 public Location(Long idLocation, String location) {
@@ -36,6 +41,12 @@ private String location;
 @OneToMany(mappedBy = "location")
 private List<Vehicule> vehicules;
  
+public List<Vehicule> getVehicules() {
+    return vehicules;
+}
+public void setVehicules(List<Vehicule> vehicules) {
+    this.vehicules = vehicules;
+}
 public Long getIdLocation() {
     return idLocation;
 }

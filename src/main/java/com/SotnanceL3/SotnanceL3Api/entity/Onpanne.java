@@ -14,11 +14,17 @@ import jakarta.persistence.Table;
 @Entity
 @Table
 public class Onpanne {
-@Override
+    @Override
     public String toString() {
-        return "Onpanne [IdPanne=" + IdPanne + ", onpanne=" + onpanne + "]";
+        return "Onpanne{" +
+                "IdPanne=" + IdPanne +
+                ", onpanne='" + onpanne + '\'' +
+                ", vehicules=" + vehicules +
+                ", piece=" + piece +
+                '}';
     }
-public Onpanne(String onpanne) {
+
+    public Onpanne(String onpanne) {
         this.onpanne = onpanne;
     }
 public Onpanne() {
@@ -37,8 +43,20 @@ private String onpanne;
 @OneToMany(mappedBy = "onpanne")
 private List<Vehicule> vehicules;
 
+public List<Vehicule> getVehicules() {
+    return vehicules;
+}
+public void setVehicules(List<Vehicule> vehicules) {
+    this.vehicules = vehicules;
+}
 @OneToOne
 private Piece piece;
+public Piece getPiece() {
+    return piece;
+}
+public void setPiece(Piece piece) {
+    this.piece = piece;
+}
 public Long getIdPanne() {
     return IdPanne;
 }
